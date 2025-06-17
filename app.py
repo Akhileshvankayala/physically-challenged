@@ -11,6 +11,10 @@ import time
 import pyttsx3  # Text-to-Speech
 import google.generativeai as genai
 import speech_recognition as sr
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -280,8 +284,8 @@ def request_service():
         return jsonify({"error": str(e)}), 500
 
 # Set up Gemini API Key
-const apiKey = import.meta.env.VITE_API_KEY;
-genai.configure(api_key=API_KEY)
+api_key = os.getenv("VITE_API_KEY")
+genai.configure(api_key=api_key)
 
 # Function to get response from Gemini
 def get_gemini_response(user_input):
