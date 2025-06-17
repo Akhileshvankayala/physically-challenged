@@ -280,7 +280,7 @@ def request_service():
         return jsonify({"error": str(e)}), 500
 
 # Set up Gemini API Key
-API_KEY = "AIzaSyBRYf7eLXd4xRLl192hS3__-yOFNv2hiTA"
+const apiKey = import.meta.env.VITE_API_KEY;
 genai.configure(api_key=API_KEY)
 
 # Function to get response from Gemini
